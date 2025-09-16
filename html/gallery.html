@@ -31,89 +31,67 @@
     <main>
         <section class="hero">
             <h1>Gallery of Failed Inventions</h1>
-            <p>A visual journey through history's most spectacular failures</p>
+            <p>A hilarious journey through history's most spectacular failures</p>
         </section>
 
         <section class="slider-section">
             <h2>Featured Failures Slideshow</h2>
-            <div class="slider">
-                <div class="slide">
-                    <img src="../images/spray_hair.jpg" alt="Spray-on Hair">
-                    <div class="slide-content">
-                        <h3>Spray-on Hair</h3>
-                        <p>When dignity meets aerosol technology</p>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="../images/pet_rock.jpg" alt="Pet Rock">
+                        <div class="slide-content">
+                            <h3>Pet Rock (1975)</h3>
+                            <p>The ultimate low-maintenance pet! No feeding, no walking, no vet bills. Just pure rock-solid companionship. 💎</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/isolator_helmet.jpg" alt="Isolator Helmet">
+                        <div class="slide-content">
+                            <h3>The Isolator Helmet (1925)</h3>
+                            <p>For when you need to focus but also look like a deep-sea diver having an existential crisis! 🤿</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/banana_slicer.jpg" alt="Banana Slicer">
+                        <div class="slide-content">
+                            <h3>Banana Slicer</h3>
+                            <p>Because using a knife to slice a banana is SO last century! Revolutionary banana technology! 🍌</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/spray_hair.jpg" alt="Spray-on Hair">
+                        <div class="slide-content">
+                            <h3>Spray-on Hair</h3>
+                            <p>Instant hair in a can! Perfect for windy days... if you enjoy looking like a Chia Pet! 💨</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/bic_for_her.jpg" alt="Bic for Her">
+                        <div class="slide-content">
+                            <h3>Bic for Her Pens</h3>
+                            <p>Finally! Pens designed for delicate lady hands. Because regular pens were too... masculine? 💅</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/baby_cage.jpg" alt="Baby Cage">
+                        <div class="slide-content">
+                            <h3>Baby Cage (1930s)</h3>
+                            <p>Fresh air for city babies! What could go wrong with dangling infants outside windows? 👶</p>
+                        </div>
                     </div>
                 </div>
-                <div class="slide">
-                    <img src="../images/bic_for_her.jpg" alt="Bic for Her">
-                    <div class="slide-content">
-                        <h3>Bic for Her</h3>
-                        <p>Because regular pens were too masculine</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="../images/harley_perfume.jpg" alt="Harley Perfume">
-                    <div class="slide-content">
-                        <h3>Harley-Davidson Perfume</h3>
-                        <p>Nothing says tough like floral scents</p>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="../images/coors_water.jpg" alt="Coors Water">
-                    <div class="slide-content">
-                        <h3>Coors Rocky Mountain Spring Water</h3>
-                        <p>Beer that tastes like water becomes... water</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gallery">
-            <div class="gallery-item">
-                <img src="../images/ford_edsel.jpg" alt="Ford Edsel">
-                <div class="overlay">
-                    <h3>Ford Edsel</h3>
-                    <p>The car that became synonymous with failure</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="../images/google_glass.jpg" alt="Google Glass">
-                <div class="overlay">
-                    <h3>Google Glass</h3>
-                    <p>Wearable tech ahead of its time</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="../images/new_coke.jpg" alt="New Coke">
-                <div class="overlay">
-                    <h3>New Coke</h3>
-                    <p>When fixing what isn't broken goes wrong</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="../images/baby_cage.jpg" alt="Baby Cage">
-                <div class="overlay">
-                    <h3>Urban Window Baby Cage</h3>
-                    <p>Fresh air with questionable safety</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="../images/arch_deluxe.jpg" alt="McDonald's Arch Deluxe">
-                <div class="overlay">
-                    <h3>McDonald's Arch Deluxe</h3>
-                    <p>The upscale burger nobody wanted</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="../images/siamese_shoes.jpg" alt="Siamese Dancing Shoes">
-                <div class="overlay">
-                    <h3>Siamese Dancing Shoes</h3>
-                    <p>Two left feet, literally</p>
+                
+                <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+                <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
+                
+                <div class="dots-container">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
                 </div>
             </div>
         </section>
@@ -122,6 +100,42 @@
     <footer>
         <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
     </footer>
+
+    <script>
+        let slideIndex = 1;
+        
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+        
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+        
+        // Auto slide every 5 seconds
+        setInterval(function() {
+            changeSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
 

@@ -56,6 +56,63 @@
     <footer>
         <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.signin-form form');
+            const emailInput = document.querySelector('input[name="email"]');
+            const passwordInput = document.querySelector('input[name="password"]');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Reset previous error styles
+                emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                passwordInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Password validation
+                if (passwordInput.value.length < 6) {
+                    passwordInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Show success message
+                    alert('تم تسجيل الدخول بنجاح!');
+                    // In a real application, you would submit the form here
+                } else {
+                    alert('يرجى التحقق من البيانات المدخلة');
+                }
+            });
+            
+            // Real-time validation
+            emailInput.addEventListener('input', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(this.value)) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                if (this.value.length >= 6) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 

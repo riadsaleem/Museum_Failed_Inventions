@@ -73,6 +73,118 @@
     <footer>
         <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.signup-form form');
+            const firstNameInput = document.querySelector('input[name="firstname"]');
+            const lastNameInput = document.querySelector('input[name="lastname"]');
+            const emailInput = document.querySelector('input[name="email"]');
+            const passwordInput = document.querySelector('input[name="password"]');
+            const confirmPasswordInput = document.querySelector('input[name="confirm_password"]');
+            const termsCheckbox = document.querySelector('input[name="terms"]');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                const inputs = [firstNameInput, lastNameInput, emailInput, passwordInput, confirmPasswordInput];
+                
+                // Reset previous error styles
+                inputs.forEach(input => {
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                });
+                
+                // First name validation
+                if (firstNameInput.value.length < 2) {
+                    firstNameInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Last name validation
+                if (lastNameInput.value.length < 2) {
+                    lastNameInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Password validation
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (!passwordRegex.test(passwordInput.value)) {
+                    passwordInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Confirm password validation
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    confirmPasswordInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Terms checkbox validation
+                if (!termsCheckbox.checked) {
+                    alert('يجب الموافقة على الشروط والأحكام');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    alert('تم إنشاء الحساب بنجاح!');
+                    // In a real application, you would submit the form here
+                } else {
+                    alert('يرجى التحقق من البيانات المدخلة');
+                }
+            });
+            
+            // Real-time validation
+            firstNameInput.addEventListener('input', function() {
+                if (this.value.length >= 2) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            lastNameInput.addEventListener('input', function() {
+                if (this.value.length >= 2) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            emailInput.addEventListener('input', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(this.value)) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (passwordRegex.test(this.value)) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            confirmPasswordInput.addEventListener('input', function() {
+                if (this.value === passwordInput.value && this.value.length > 0) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
