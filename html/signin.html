@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signin.css">
+    <title>Sign In - Museum of Failed Inventions</title>
+</head>
+<body>
+    <header>
+        <div class="start-header">
+            <div class="logo"><h3>Home<span>Mix</span></h3></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="weird-inventions.html">Weird Inventions</a></li>
+                    <li><a href="about.html">About & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="end-header">
+            <form action="#" method="get">
+                <input type="search" name="search" placeholder="Search..." autocomplete="on">
+            </form>
+            <a href="signin.html" class="btn">Sign In</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="signin-container">
+            <div class="signin-form">
+                <h1>Sign In</h1>
+                <p>Welcome back to the Museum of Failed Inventions</p>
+                
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" minlength="6" required>
+                    </div>
+                    
+                    <button type="submit" class="signin-btn">Sign In</button>
+                </form>
+                
+                <div class="form-links">
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.signin-form form');
+            const emailInput = document.querySelector('input[name="email"]');
+            const passwordInput = document.querySelector('input[name="password"]');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Reset previous error styles
+                emailInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                passwordInput.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Password validation
+                if (passwordInput.value.length < 6) {
+                    passwordInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Show success message
+                    alert('تم تسجيل الدخول بنجاح!');
+                    // In a real application, you would submit the form here
+                } else {
+                    alert('يرجى التحقق من البيانات المدخلة');
+                }
+            });
+            
+            // Real-time validation
+            emailInput.addEventListener('input', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(this.value)) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                if (this.value.length >= 6) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

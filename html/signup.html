@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/signup.css">
+    <title>Sign Up - Museum of Failed Inventions</title>
+</head>
+<body>
+    <header>
+        <div class="start-header">
+            <div class="logo"><h3>Home<span>Mix</span></h3></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="weird-inventions.html">Weird Inventions</a></li>
+                    <li><a href="about.html">About & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="end-header">
+            <form action="#" method="get">
+                <input type="search" name="search" placeholder="Search..." autocomplete="on">
+            </form>
+            <a href="signin.html" class="btn">Sign In</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="signup-container">
+            <div class="signup-form">
+                <h1>Sign Up</h1>
+                <p>Join the Museum of Failed Inventions</p>
+                
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <input type="text" name="firstname" placeholder="First Name" minlength="2" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="lastname" placeholder="Last Name" minlength="2" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain at least 8 characters with uppercase, lowercase, number and special character" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" minlength="8" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the Terms and Conditions</label>
+                    </div>
+                    
+                    <button type="submit" class="signup-btn">Sign Up</button>
+                </form>
+                
+                <div class="form-links">
+                    <p>Already have an account? <a href="signin.html">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.signup-form form');
+            const firstNameInput = document.querySelector('input[name="firstname"]');
+            const lastNameInput = document.querySelector('input[name="lastname"]');
+            const emailInput = document.querySelector('input[name="email"]');
+            const passwordInput = document.querySelector('input[name="password"]');
+            const confirmPasswordInput = document.querySelector('input[name="confirm_password"]');
+            const termsCheckbox = document.querySelector('input[name="terms"]');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                const inputs = [firstNameInput, lastNameInput, emailInput, passwordInput, confirmPasswordInput];
+                
+                // Reset previous error styles
+                inputs.forEach(input => {
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                });
+                
+                // First name validation
+                if (firstNameInput.value.length < 2) {
+                    firstNameInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Last name validation
+                if (lastNameInput.value.length < 2) {
+                    lastNameInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Password validation
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (!passwordRegex.test(passwordInput.value)) {
+                    passwordInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Confirm password validation
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    confirmPasswordInput.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                }
+                
+                // Terms checkbox validation
+                if (!termsCheckbox.checked) {
+                    alert('يجب الموافقة على الشروط والأحكام');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    alert('تم إنشاء الحساب بنجاح!');
+                    // In a real application, you would submit the form here
+                } else {
+                    alert('يرجى التحقق من البيانات المدخلة');
+                }
+            });
+            
+            // Real-time validation
+            firstNameInput.addEventListener('input', function() {
+                if (this.value.length >= 2) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            lastNameInput.addEventListener('input', function() {
+                if (this.value.length >= 2) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            emailInput.addEventListener('input', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(this.value)) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                if (passwordRegex.test(this.value)) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            confirmPasswordInput.addEventListener('input', function() {
+                if (this.value === passwordInput.value && this.value.length > 0) {
+                    this.style.borderColor = '#4ecdc4';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

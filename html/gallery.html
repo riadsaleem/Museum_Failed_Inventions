@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/gallery.css">
+    <title>Gallery - Museum of Failed Inventions</title>
+</head>
+<body>
+    <header>
+        <div class="start-header">
+            <div class="logo"><h3>Home<span>Mix</span></h3></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="weird-inventions.html">Weird Inventions</a></li>
+                    <li><a href="about.html">About & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="end-header">
+            <form action="#" method="get">
+                <input type="search" name="search" placeholder="Search..." autocomplete="on">
+            </form>
+            <a href="signin.html" class="btn">Sign In</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Gallery of Failed Inventions</h1>
+            <p>A hilarious journey through history's most spectacular failures</p>
+        </section>
+
+        <section class="slider-section">
+            <h2>Featured Failures Slideshow</h2>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="../images/pet_rock.jpg" alt="Pet Rock">
+                        <div class="slide-content">
+                            <h3>Pet Rock (1975)</h3>
+                            <p>The ultimate low-maintenance pet! No feeding, no walking, no vet bills. Just pure rock-solid companionship. 💎</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/isolator_helmet.jpg" alt="Isolator Helmet">
+                        <div class="slide-content">
+                            <h3>The Isolator Helmet (1925)</h3>
+                            <p>For when you need to focus but also look like a deep-sea diver having an existential crisis! 🤿</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/banana_slicer.jpg" alt="Banana Slicer">
+                        <div class="slide-content">
+                            <h3>Banana Slicer</h3>
+                            <p>Because using a knife to slice a banana is SO last century! Revolutionary banana technology! 🍌</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/spray_hair.jpg" alt="Spray-on Hair">
+                        <div class="slide-content">
+                            <h3>Spray-on Hair</h3>
+                            <p>Instant hair in a can! Perfect for windy days... if you enjoy looking like a Chia Pet! 💨</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/bic_for_her.jpg" alt="Bic for Her">
+                        <div class="slide-content">
+                            <h3>Bic for Her Pens</h3>
+                            <p>Finally! Pens designed for delicate lady hands. Because regular pens were too... masculine? 💅</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="../images/baby_cage.jpg" alt="Baby Cage">
+                        <div class="slide-content">
+                            <h3>Baby Cage (1930s)</h3>
+                            <p>Fresh air for city babies! What could go wrong with dangling infants outside windows? 👶</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+                <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
+                
+                <div class="dots-container">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+        
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+        
+        // Auto slide every 5 seconds
+        setInterval(function() {
+            changeSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>
+
