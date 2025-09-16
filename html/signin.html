@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Museum of Failed Inventions</title>
+    <link rel="stylesheet" href="../css/signin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text">HomeMix</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="weird-inventions.html">Weird Inventions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-nav">
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search...">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <a class="nav-link sign-in-btn active" href="signin.html">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <div class="auth-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h2 class="auth-title">Welcome Back</h2>
+                            <p class="auth-subtitle">Sign in to access your failed inventions collection</p>
+                        </div>
+
+                        <form class="auth-form" id="signinForm">
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                       placeholder="Enter your email" required>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="form-label">
+                                    <i class="fas fa-lock"></i> Password
+                                </label>
+                                <div class="password-input-container">
+                                    <input type="password" class="form-control" id="password" name="password" 
+                                           placeholder="Enter your password" required>
+                                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                                        <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback">Please enter your password.</div>
+                            </div>
+
+                            <div class="form-options">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" class="forgot-password" onclick="showForgotPassword()">
+                                    Forgot password?
+                                </a>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary auth-btn">
+                                <i class="fas fa-sign-in-alt"></i> Sign In
+                            </button>
+
+                            <div class="auth-divider">
+                                <span>or</span>
+                            </div>
+
+                            <div class="social-auth">
+                                <button type="button" class="btn social-btn google-btn" onclick="signInWithGoogle()">
+                                    <i class="fab fa-google"></i> Continue with Google
+                                </button>
+                                <button type="button" class="btn social-btn facebook-btn" onclick="signInWithFacebook()">
+                                    <i class="fab fa-facebook-f"></i> Continue with Facebook
+                                </button>
+                            </div>
+
+                            <div class="auth-footer">
+                                <p>Don't have an account? <a href="signup.html" class="auth-link">Sign up here</a></p>
+                            </div>
+                        </form>
+
+                        <!-- Demo Credentials Info -->
+                        <div class="demo-info">
+                            <h4><i class="fas fa-info-circle"></i> Demo Credentials</h4>
+                            <p>Use these credentials to test the login:</p>
+                            <div class="demo-credentials">
+                                <div class="demo-credential">
+                                    <strong>Email:</strong> demo@failedmuseum.com
+                                </div>
+                                <div class="demo-credential">
+                                    <strong>Password:</strong> FailedInvention123
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-light btn-sm" onclick="fillDemoCredentials()">
+                                <i class="fas fa-magic"></i> Use Demo Credentials
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal">
+                <div class="modal-body text-center">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Welcome Back!</h3>
+                    <p>You have successfully signed in to your account.</p>
+                    <button type="button" class="btn btn-primary" onclick="redirectToHome()">
+                        Continue to Museum
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content forgot-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your email address and we'll send you a link to reset your password.</p>
+                    <form id="forgotPasswordForm">
+                        <div class="form-group">
+                            <label for="resetEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="resetEmail" name="resetEmail" 
+                                   placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Reset Link
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Museum of Failed Inventions</h5>
+                    <p>Celebrating the courage to innovate, even when it doesn't work out.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-links">
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="gallery.html">Gallery</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/signin.js"></script>
+</body>
+</html>
+
