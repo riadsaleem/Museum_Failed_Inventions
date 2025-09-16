@@ -3,263 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weird Inventions - Museum of Failed Inventions</title>
     <link rel="stylesheet" href="../css/weird-inventions.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Weird Inventions - Museum of Failed Inventions</title>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <span class="brand-text">HomeMix</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="weird-inventions.html">Weird Inventions</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <div class="navbar-nav">
-                        <div class="search-container">
-                            <input type="text" class="search-input" placeholder="Search...">
-                            <i class="fas fa-search search-icon"></i>
-                        </div>
-                        <a class="nav-link sign-in-btn" href="signin.html">Sign In</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+    <header>
+        <div class="start-header">
+            <div class="logo"><h3>Home<span>Mix</span></h3></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="weird-inventions.html">Weird Inventions</a></li>
+                    <li><a href="about.html">About & Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="end-header">
+            <form action="#" method="get">
+                <input type="search" name="search" placeholder="Search..." autocomplete="on">
+            </form>
+            <a href="signin.html" class="btn">Sign In</a>
+        </div>
     </header>
 
     <main>
-        <section class="page-hero">
-            <div class="container">
-                <h1 class="page-title">Weird Inventions</h1>
-                <p class="page-subtitle">The most bizarre and hilarious inventions that somehow made it to production</p>
-            </div>
+        <section class="hero">
+            <h1>Weird Inventions</h1>
+            <p>The most bizarre and hilarious inventions that somehow made it to production</p>
         </section>
 
-        <section class="inventions-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="invention-card">
-                            <div class="invention-image">
-                                <img src="../images/ford_edsel.jpg" alt="Ford Edsel">
-                                <div class="invention-overlay">
-                                    <div class="invention-year">1957-1960</div>
-                                </div>
-                            </div>
-                            <div class="invention-content">
-                                <h3 class="invention-title">Ford Edsel</h3>
-                                <p class="invention-description">
-                                    The car that became synonymous with commercial failure. Despite massive marketing efforts and a $250 million investment, the Edsel's unusual design, reliability issues, and high price tag during a recession made it one of automotive history's biggest flops. Only lasted 3 years in production.
-                                </p>
-                                <div class="invention-stats">
-                                    <span class="stat"><i class="fas fa-dollar-sign"></i> $250M Lost</span>
-                                    <span class="stat"><i class="fas fa-calendar"></i> 3 Years</span>
-                                    <span class="stat"><i class="fas fa-chart-line-down"></i> Epic Fail</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="invention-card">
-                            <div class="invention-image">
-                                <img src="../images/google_glass.jpg" alt="Google Glass">
-                                <div class="invention-overlay">
-                                    <div class="invention-year">2012-2015</div>
-                                </div>
-                            </div>
-                            <div class="invention-content">
-                                <h3 class="invention-title">Google Glass</h3>
-                                <p class="invention-description">
-                                    The future of wearable technology that arrived too early. Privacy concerns, social stigma ("Glassholes"), technical limitations, and a $1,500 price tag turned this revolutionary idea into a cautionary tale about timing in tech innovation.
-                                </p>
-                                <div class="invention-stats">
-                                    <span class="stat"><i class="fas fa-eye-slash"></i> Privacy Issues</span>
-                                    <span class="stat"><i class="fas fa-dollar-sign"></i> $1,500</span>
-                                    <span class="stat"><i class="fas fa-users-slash"></i> Social Stigma</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="invention-card">
-                            <div class="invention-image">
-                                <img src="../images/arch_deluxe.jpg" alt="McDonald's Arch Deluxe">
-                                <div class="invention-overlay">
-                                    <div class="invention-year">1996-1997</div>
-                                </div>
-                            </div>
-                            <div class="invention-content">
-                                <h3 class="invention-title">McDonald's Arch Deluxe</h3>
-                                <p class="invention-description">
-                                    The "burger with the grown-up taste" that nobody wanted. With a promotional budget of $150-200 million (the largest in fast food history), McDonald's tried to attract adults but forgot that people go to McDonald's for cheap, familiar food, not upscale dining.
-                                </p>
-                                <div class="invention-stats">
-                                    <span class="stat"><i class="fas fa-dollar-sign"></i> $200M Marketing</span>
-                                    <span class="stat"><i class="fas fa-hamburger"></i> Wrong Audience</span>
-                                    <span class="stat"><i class="fas fa-thumbs-down"></i> Customer Reject</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="invention-card">
-                            <div class="invention-image">
-                                <img src="../images/new_coke.jpg" alt="New Coke">
-                                <div class="invention-overlay">
-                                    <div class="invention-year">1985</div>
-                                </div>
-                            </div>
-                            <div class="invention-content">
-                                <h3 class="invention-title">New Coke</h3>
-                                <p class="invention-description">
-                                    What do you do when you sell the world's most popular soft drink? Change the formula, of course! Coca-Cola's attempt to compete with Pepsi backfired spectacularly. Customer outrage was so intense that news anchor Peter Jennings interrupted General Hospital to announce the return of "Classic" Coke.
-                                </p>
-                                <div class="invention-stats">
-                                    <span class="stat"><i class="fas fa-angry"></i> Public Outrage</span>
-                                    <span class="stat"><i class="fas fa-calendar"></i> 79 Days</span>
-                                    <span class="stat"><i class="fas fa-undo"></i> Formula Reverted</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="invention-card">
-                            <div class="invention-image">
-                                <img src="../images/baby_cage.jpg" alt="Urban Window Baby Cage">
-                                <div class="invention-overlay">
-                                    <div class="invention-year">1930s</div>
-                                </div>
-                            </div>
-                            <div class="invention-content">
-                                <h3 class="invention-title">Urban Window Baby Cage</h3>
-                                <p class="invention-description">
-                                    Dubbed by Time as one of the "50 worst inventions," this contraption was used to give city babies fresh air by dangling them outside apartment windows. Doctors believed this would boost immune systems, but the obvious safety risks made this a short-lived trend.
-                                </p>
-                                <div class="invention-stats">
-                                    <span class="stat"><i class="fas fa-baby"></i> Baby Endangerment</span>
-                                    <span class="stat"><i class="fas fa-exclamation-triangle"></i> Safety Risk</span>
-                                    <span class="stat"><i class="fas fa-ban"></i> Quickly Banned</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="invention-card">
-                            <div class="invention-image">
-                                <img src="../images/siamese_shoes.jpg" alt="Siamese Dancing Shoes">
-                                <div class="invention-overlay">
-                                    <div class="invention-year">1981</div>
-                                </div>
-                            </div>
-                            <div class="invention-content">
-                                <h3 class="invention-title">Siamese Dancing Shoes</h3>
-                                <p class="invention-description">
-                                    Got two left feet? These connected dancing shoes were designed to help couples stay in sync on the dance floor. Featured in the spoof "Better Living Catalogue," they were more likely to cause couples to trip spectacularly than to dance gracefully.
-                                </p>
-                                <div class="invention-stats">
-                                    <span class="stat"><i class="fas fa-link"></i> Connected Shoes</span>
-                                    <span class="stat"><i class="fas fa-dizzy"></i> Trip Hazard</span>
-                                    <span class="stat"><i class="fas fa-laugh"></i> Comedy Gold</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="inventions">
+            <div class="invention-card">
+                <img src="../images/ford_edsel.jpg" alt="Ford Edsel">
+                <div class="card-content">
+                    <h3>Ford Edsel (1957-1960)</h3>
+                    <p>The car that became synonymous with commercial failure. Despite massive marketing efforts and a $250 million investment, the Edsel's unusual design and high price tag during a recession made it one of automotive history's biggest flops.</p>
                 </div>
+            </div>
 
-                <div class="more-inventions">
-                    <h2 class="section-title">More Bizarre Failures</h2>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <div class="mini-invention-card">
-                                <h4>Sony Betamax</h4>
-                                <p>Superior technology that lost to VHS due to marketing and licensing decisions.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="mini-invention-card">
-                                <h4>Nokia N-Gage</h4>
-                                <p>A gaming phone with an awkward design that pleased neither gamers nor phone users.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="mini-invention-card">
-                                <h4>Spray-on Hair</h4>
-                                <p>Because nothing says "natural" like aerosol-painted scalp coverage.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="mini-invention-card">
-                                <h4>Bic for Her</h4>
-                                <p>Pens specially designed for women's hands - because regular pens were too masculine?</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="mini-invention-card">
-                                <h4>Harley-Davidson Perfume</h4>
-                                <p>The iconic motorcycle brand's fragrant failure that nobody asked for.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="mini-invention-card">
-                                <h4>Olestra</h4>
-                                <p>Fat-free food additive with unfortunate digestive side effects.</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="invention-card">
+                <img src="../images/google_glass.jpg" alt="Google Glass">
+                <div class="card-content">
+                    <h3>Google Glass (2012-2015)</h3>
+                    <p>The future of wearable technology that arrived too early. Privacy concerns, social stigma, and technical limitations turned this revolutionary idea into a cautionary tale about timing in tech innovation.</p>
+                </div>
+            </div>
+
+            <div class="invention-card">
+                <img src="../images/new_coke.jpg" alt="New Coke">
+                <div class="card-content">
+                    <h3>New Coke (1985)</h3>
+                    <p>What do you do when you sell the world's most popular soft drink? Change the formula, of course! Coca-Cola's attempt to compete with Pepsi backfired spectacularly, lasting only 79 days before returning to the classic formula.</p>
+                </div>
+            </div>
+
+            <div class="invention-card">
+                <img src="../images/baby_cage.jpg" alt="Baby Cage">
+                <div class="card-content">
+                    <h3>Urban Window Baby Cage (1930s)</h3>
+                    <p>Dubbed by Time as one of the "50 worst inventions," this contraption was used to give city babies fresh air by dangling them outside apartment windows. The obvious safety risks made this a short-lived trend.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Museum of Failed Inventions</h5>
-                    <p>Celebrating the courage to innovate, even when it doesn't work out.</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="footer-links">
-                        <a href="about.html">About</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="text-center">
-                <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2024 Museum of Failed Inventions. All rights reserved.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
